@@ -36,26 +36,32 @@ search.addEventListener('click', () => {
 
             switch (json.weather[0].main) {
                 case 'Clear':
+                    document.body.style.background = 'linear-gradient(to top, #fceabb, #f8b500)';
                     image.src = 'clear.png';
                     break;
 
                 case 'Rain':
+                    document.body.style.background = 'linear-gradient(to top, #373B44, #4286f4)';
                     image.src = 'rain.png';
                     break;
 
                 case 'Snow':
+                    document.body.style.background = 'linear-gradient(to top, #e6dada, #274046)';
                     image.src = 'snow.png';
                     break;
 
                 case 'Clouds':
+                    document.body.style.background = 'linear-gradient(to top, #bdc3c7, #2c3e50)';
                     image.src = 'cloud.png';
                     break;
 
                 case 'Haze':
+                    document.body.style.background = 'linear-gradient(to top, #3e5151, #decba4)';
                     image.src = 'mist.png';
                     break;
 
                 default:
+                    document.body.style.background = 'linear-gradient(to top, #06283D, #041C32)';
                     image.src = '';
             }
 

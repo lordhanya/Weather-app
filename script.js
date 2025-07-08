@@ -1,16 +1,14 @@
 const container = document.querySelector('.container');
 const search = document.querySelector('.search-box button');
+const input = document.querySelector('.search-box input');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
+const APIKey = '9065ae8adc30a0c0f70c59bc08950466';
 
-search.addEventListener('click', () => {
-
-    const APIKey = '9065ae8adc30a0c0f70c59bc08950466';
-    const city = document.querySelector('.search-box input').value;
-
-    if (city === '')
-        return;
+function getWeather() {
+    const city = input.value.trim();
+    if (city === '') return;
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
         .then(response => response.json())
@@ -39,27 +37,22 @@ search.addEventListener('click', () => {
                     document.body.style.background = 'linear-gradient(to top, #fceabb, #f8b500)';
                     image.src = 'clear.png';
                     break;
-
                 case 'Rain':
                     document.body.style.background = 'linear-gradient(to top, #373B44, #4286f4)';
                     image.src = 'rain.png';
                     break;
-
                 case 'Snow':
                     document.body.style.background = 'linear-gradient(to top, #e6dada, #274046)';
                     image.src = 'snow.png';
                     break;
-
                 case 'Clouds':
                     document.body.style.background = 'linear-gradient(to top, #bdc3c7, #2c3e50)';
                     image.src = 'cloud.png';
                     break;
-
                 case 'Haze':
                     document.body.style.background = 'linear-gradient(to top, #3e5151, #decba4)';
                     image.src = 'mist.png';
                     break;
-
                 default:
                     document.body.style.background = 'linear-gradient(to top, #06283D, #041C32)';
                     image.src = '';
@@ -75,9 +68,14 @@ search.addEventListener('click', () => {
             weatherBox.classList.add('fadeIn');
             weatherDetails.classList.add('fadeIn');
             container.style.height = '590px';
-
-
         });
+}
 
 
+search.addEventListener('click', getWeather);
+
+input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        getWeather();
+    }
 });

@@ -38,6 +38,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 2px solid #444;
 }
 
 .search-box input{
@@ -60,10 +61,11 @@ body{
     width: 45px;
     height: 45px;
     color: #06283D;
-    background: #dff6ff;
+    background: #8dcee7db;
     border-radius: 50%;
     font-size: 20px;
     transition: 0.4s ease;
+    margin: 3px auto;
 }
 
 .search-box button:hover{
@@ -175,6 +177,17 @@ body{
 .weather-box, .weather-details{
     scale: 0;
     opacity: 0;
+}
+
+.reference p{
+    font-size: 14px;
+    color: #444;
+    text-align: center;
+    margin:  26px auto;
+}
+
+.reference p a:hover{
+    border-bottom: 2px solid #444;
 }
 
 .fadeIn{

@@ -67,7 +67,7 @@ function getWeather() {
             weatherDetails.style.display = '';
             weatherBox.classList.add('fadeIn');
             weatherDetails.classList.add('fadeIn');
-            container.style.height = '590px';
+            container.style.height = 'auto';
         });
 }
 
